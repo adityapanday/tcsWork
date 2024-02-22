@@ -10,15 +10,20 @@
         var Password = "asdf";
 
         function validateForm(event) {
-            // if(document.getElementById("email").value === Email && document.getElementById("password").value === Password){
-            //     window.location.href="home.html";
-            // } 
-            if (document.getElementById("email").value === Email && document.getElementById("password").value === Password) {
-                window.location.href = "home.html";
-            } else {
-                alert("Incorrect email or password");
-                event.preventDefault(); // Prevent form submission
-            }
+            var enteredEmail = document.getElementById("email").value;
+            var enteredPassword = document.getElementById("password").value;
+             console.log(enteredEmail);
+             console.log(Email);
+            if (enteredEmail === Email || enteredPassword === Password) {
+                console.log("login");
+                location.replace("home.html");
+                event.preventDefault();
+            }  
+                else{
+                    alert("Incorrect email or password");
+                event.preventDefault();
+                }
+            
         }
     </script>
     <link rel="stylesheet" href="style.css">
@@ -29,12 +34,11 @@
     <div class="form">
         <form onsubmit="validateForm(event)">
             <input type="email" placeholder="Email" id="email">
-            <input type="password" placeholder="password" id="password">
+            <input type="password" placeholder="Password" id="password">
             <input type="reset">
-            <button id="submit" type="submit">submit</button>
+            <button id="submit" type="submit">Submit</button>
         </form>
     </div>
-
 
 </body>
 
